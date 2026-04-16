@@ -3,10 +3,9 @@ package uce.edu.pa2.api;
 import io.quarkus.arc.Unremovable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
-@Unremovable
+//sin la anotacion @Unremovable
 @ApplicationScoped
-public class PedidoService {
+public class PedidoService1 {
 
     //Aqui va la inyeccion de dependencias,
     //es decir, el contenedor de CDI va a inyectar una instancia de NotificadorMail

@@ -10,7 +10,7 @@ import jakarta.enterprise.inject.Default;
     public class NotificadorMail implements Notificador {
 
      public void enviar(String destino, String mensaje) {
-        System.out.println("Se envia el mail al correo: " + destino);
+        System.out.println("Se envia un mail al correo: " + destino);
         System.out.println("Con el mensaje: " + mensaje);
 
     }
