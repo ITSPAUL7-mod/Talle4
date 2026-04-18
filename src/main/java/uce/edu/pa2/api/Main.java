@@ -24,6 +24,18 @@ public class Main {
         //private PedidoService pedidoService;
         @Inject
         private PedidoService1 pedidoService1;
+        @Inject
+        private PagoTarjetaCredito pagoTc;
+        @Inject
+        private PagoEfectivo pagoE;
+        @Inject
+        private ComprobantePDF cfe;
+        @Inject
+        private Factura fc;
+
+
+
+
 
         //2. LookUp o  service locator
         //private PedidoService pedidoService = CDI.current().select(PedidoService.class).get();
@@ -31,28 +43,29 @@ public class Main {
         @Override
         public int run(String... args) throws Exception {
 
-        PedidoService1 pedidoService = CDI.current().select(PedidoService1.class).get();
 
         //Caso1
         System.out.println("Caso 1 Email: ");
 
-        Pedido pedido1 = new Pedido("Andy Suquilandi", "Papasfritas", 125.5, "andy@gmail.com");
+        Pedido pedido1 = new Pedido("Andy Suquilandi", "Papasfritas", 125.5, null);
         
-        pedidoService.registrar(pedido1);
+        pedidoService1.registrar(pedido1, pagoE,fc);
+        System.out.println("---------------------------------");
 
        //Caso 2
         System.out.println("Caso 2 SMS: ");
 
         Pedido pedido2 = new Pedido("Paul Aguas", "Cola", 75.5, "paul@uce.com");
 
-        pedidoService.registrar(pedido2);
-        
+        pedidoService1.registrar(pedido2, pagoTc, cfe); 
+        System.out.println("---------------------------------");
+       
         //Caso 3
         System.out.println("Caso 3 Whatsapp: ");
 
         Pedido pedido3 = new Pedido("Andrez Perez", "PC-Race", 25.5, "paul@uce.edu.ec");
         
-        pedidoService.registrar(pedido3);
+        pedidoService1.registrar(pedido3, pagoE, cfe);
 
         
             return 0;

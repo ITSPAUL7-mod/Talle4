@@ -8,6 +8,12 @@ public class Pedido {
     private double total;
     private String destino;
     private String mensaje;
+    
+
+
+    //solo con 2 si el cliente tiene un destino registrado se envia
+    //un comprobante pdf pero si no lo tiene o es null 
+    //se imprime un comprobante fisico
 
     public Pedido(){
 
