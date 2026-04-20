@@ -7,6 +7,9 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class PedidoService1 {
 
+    //!) diferentes formas de pago efectivo y tarjeta
+    //2) tipo comprobante va a ser en pdf digital, un papel fisico y un xml  
+
     //Aqui va la inyeccion de dependencias,
     //es decir, el contenedor de CDI va a inyectar una instancia de NotificadorMail
 
@@ -33,23 +36,33 @@ public class PedidoService1 {
     }
  */
 
+    //Cuando hay una logica es mejor construir una clase
     @Inject
     private NotificadorSelector selector; 
+    //PeronCuando no hay una logica en este caso para cobro
+    //debe de haber una forma de que se pueda implementar los pagos
+
+    //private PagoEstrategia pago;
 
 
-     public void registrar(Pedido pedido){
+     public void registrar(Pedido pedido, PagoEstrategia pago, ComprobanteEstrategia ce){
 
         System.out.println("Registrando pedido");
         System.out.println("Cliente:" + pedido.getCliente());
         System.out.println("Total: " + pedido.getTotal());
         System.out.println("Guardando en la base de datos");
 
-        //sin DI
+        pago.realizar(pedido.getTotal());
+        
+        ce.comprobante(pedido);
+
+         //sin DI
         //NotificadorMail n1 = new NotificadorMail();
         
         //notificamos al cliente que se ha creado el pedido
         //Con DI por el contenedor
         Notificador notificador = this.selector.seleccionar(pedido.getTotal());
+
         notificador.enviar(pedido.getDestino(), "Pedido registrado");
 
     }
