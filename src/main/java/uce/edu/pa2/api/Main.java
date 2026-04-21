@@ -3,10 +3,12 @@ package uce.edu.pa2.api;
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
+import jakarta.enterprise.context.control.ActivateRequestContext;
 import jakarta.enterprise.inject.spi.CDI;
 import jakarta.inject.Inject;
 
 @QuarkusMain
+
 public class Main {
 
     public static void main(String... args) {
@@ -32,11 +34,50 @@ public class Main {
         private ComprobantePDF cfe;
         @Inject
         private Factura fc;
+        @Inject
+        private AmbitoAplicacion ambitoAplicacion;
+        @Inject
+        private ClaseIntermedia  claseIntermedia;
+         @Inject
+        private AmbitoRequest ambitoRequest;
+        @Inject
+        private AmbitoInject ambitoInject;
+        @Inject 
+        private AmbitoSingleton ambitoSingleton;
+
+        @Override
+        public int run(String... args) throws Exception {
+       
+        System.out.println("***********Ambito Scoped**********");
+        System.out.println(this.ambitoAplicacion);
+        System.out.println(this.ambitoAplicacion.incrementar());
+        System.out.println(this.ambitoAplicacion.incrementar());
+        System.out.println(this.ambitoAplicacion.incrementar());
+
+        this.claseIntermedia.imprimirobjetovalor();
+        System.out.println("***********Ambito Request**********");
+        //System.out.println(this.ambitoRequest.incrementar());
+        //System.out.println(this.ambitoRequest.incrementar());
+        //System.out.println(this.ambitoRequest.incrementar());
+        System.out.println("***********Ambito Depend**********");
+        System.out.println(this.ambitoInject);
+        System.out.println(this.ambitoInject.incrementar());
+        System.out.println(this.ambitoInject.incrementar());
+        System.out.println(this.ambitoInject.incrementar());
+        System.out.println("***********Ambito Inject**********");
+        this.claseIntermedia.imprimirobjetovalorInject();
+        System.out.println("***********Ambito Singleton**********");
+        System.out.println(this.ambitoSingleton);
+        System.out.println(this.ambitoSingleton.incrementar());
+        System.out.println(this.ambitoSingleton.incrementar());
+        System.out.println(this.ambitoSingleton.incrementar());
+        this.claseIntermedia.imprimirobjetovalorSingleton();
 
 
+        //System.out.println(this.claseIntermedia.imprimirobjetovalor());
 
 
-
+/* 
         //2. LookUp o  service locator
         //private PedidoService pedidoService = CDI.current().select(PedidoService.class).get();
 
@@ -67,7 +108,7 @@ public class Main {
         
         pedidoService1.registrar(pedido3, pagoE, cfe);
 
-        
+        */
             return 0;
         }
     }

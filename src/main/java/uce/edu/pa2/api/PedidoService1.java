@@ -54,8 +54,9 @@ public class PedidoService1 {
 
         pago.realizar(pedido.getTotal());
         
-        ce.comprobante(pedido);
-
+        ce.comprobante(pedido);;
+        
+        
          //sin DI
         //NotificadorMail n1 = new NotificadorMail();
         

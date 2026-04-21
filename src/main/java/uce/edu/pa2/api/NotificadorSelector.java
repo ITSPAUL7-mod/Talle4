@@ -12,7 +12,10 @@ public class NotificadorSelector {
     private NotificadorSMS sms;
     @Inject
     private NotificadorWhatsapp whats;
-
+   @Inject
+   private ComprobantePDF comP;
+   @Inject
+   private Factura factura;
     public Notificador seleccionar(double total){
 
          if(total > 120){
@@ -25,5 +28,13 @@ public class NotificadorSelector {
          }
     }
 
+    public ComprobanteEstrategia comprobante(Pedido pedido){
+
+         if(pedido.getDestino()  == null){
+            return factura;
+         }   else {
+            return comP;
+         }
+    }
     
 }

@@ -4,5 +4,6 @@ public interface PagoEstrategia {
 
     
     public void realizar(double valor);
+
     
 }
