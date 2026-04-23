@@ -1,6 +1,5 @@
 package uce.edu.pa2.api;
 
-import io.quarkus.arc.Unremovable;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 //sin la anotacion @Unremovable
