@@ -4,8 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
-public class ProcesadorVentaService {
-    
+public class ProcesadorVentaEnlineaService {
     @Inject
     private EstadisticasVentasGobales estadisticasVentasGobales;
 
@@ -16,7 +15,7 @@ public class ProcesadorVentaService {
     public void procesar(Venta venta) {
         // Inicia la venta
         trakingVenta.iniciar();
-        System.out.println("procesando pedido.....");
+        System.out.println("procesando pedido en linea.....");
         System.out.println("Cliente: "+venta.getCliente());
         // Consultando el stock de cada item
         // Consultando en la base de datos
