@@ -29,5 +29,7 @@ public class ProcesadorVentaService1 {
         this.trakingVenta.finalizar();
         //registra estadisticas
         this.estadisticasVentasGobales.registrarVenta(venta.getTotal());
+        //un interceptor sin ensuciar la logica de negocio 
     }
+    
 }
