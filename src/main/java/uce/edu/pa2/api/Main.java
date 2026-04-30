@@ -36,13 +36,13 @@ public class Main {
             Venta v2 = new Venta("Paul Aguas", 69);
             
             this.procesadorVentaServiceTiempo.procesar(v1);
-            this.procesadorVentaServiceTiempo.REprocesar(v2);
+            //this.procesadorVentaServiceTiempo.REprocesar(v2);
             System.out.println("**************************");
-            System.out.println("Inventario");
-            Pedido p1 = new Pedido("Andy", "Laptop", 1500, "");
+            //System.out.println("Inventario");
+            /*Pedido p1 = new Pedido("Andy", "Laptop", 1500, "");
             Pedido p2 = new Pedido("Paul", "Refrigeradora", 1200, "");
             this.inventarioService.Registrar(p1);
-            this.inventarioService.Registrar(p2);
+            this.inventarioService.Registrar(p2);*/
 
 
             return 0;

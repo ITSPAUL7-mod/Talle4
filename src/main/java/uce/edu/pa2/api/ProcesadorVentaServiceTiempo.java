@@ -8,10 +8,11 @@ public class ProcesadorVentaServiceTiempo {
     @Inject
     private EstadisticasVentasGobales estadisticasVentasGobales;
 
-   
     @MedirTiempo
+    @log
     public void procesar(Venta venta) {
         
+        System.out.println("Entro al metodo con los siguientes valores: " + venta.getCliente());
         // Inicia la venta
         System.out.println("procesando pedido.....");
         System.out.println("Cliente: "+ venta.getCliente());
@@ -31,8 +32,10 @@ public class ProcesadorVentaServiceTiempo {
         //un interceptor sin ensuciar la logica de negocio 
 
         System.out.println("Se ejecuto el pedido");
-    
-    }
+        //this.REprocesar(venta);
+        //ESTO NO SE VA A EJECUTAR 
+        //EL INTERCEPTOR DEL METODO POR QUE ES UNA LLAMADA INTERNA
+    }   
 
     @MedirTiempo
     public void REprocesar(Venta venta) {
