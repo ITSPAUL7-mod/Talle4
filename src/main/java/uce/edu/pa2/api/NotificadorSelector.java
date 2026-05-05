@@ -27,6 +27,7 @@ public class NotificadorSelector {
             return sms;
          }
     }
+    //EJEMPLOS DE DONDE SE APLIQUE DESCUENTOS EN UNA VENTA
 
     public ComprobanteEstrategia comprobante(Pedido pedido){
 
